@@ -11,6 +11,7 @@ class User(Base):
     username = Column(String, unique=True, nullable=False)
     password_hash = Column(String, nullable=False)
     role = Column(String, nullable=False)
+    deviceid = Column(String, nullable=False)  # Ensure deviceid is stored as a string
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
     # Relationships
