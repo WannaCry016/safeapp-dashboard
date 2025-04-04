@@ -2,7 +2,8 @@ from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text
 from sqlalchemy.orm import relationship
 from database import Base
 import datetime
-
+from sqlalchemy import Boolean
+# from database import Base
 
 class User(Base):
     __tablename__ = "users"  # Ensure table name is lowercase
@@ -11,7 +12,7 @@ class User(Base):
     username = Column(String, unique=True, nullable=False)
     password_hash = Column(String, nullable=False)
     role = Column(String, nullable=False)
-    deviceid = Column(String, nullable=False)  # Ensure deviceid is stored as a string
+    deviceid = Column(String, unique=True, nullable=False)  # Ensure deviceid is stored as a string
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
     # Relationships
@@ -41,3 +42,11 @@ class Log(Base):
 
     # Relationship
     user = relationship("User", back_populates="logs")
+
+class DeviceStatus(Base):
+    __tablename__ = "device_status"
+
+    id = Column(Integer, primary_key=True, index=True)
+    device_id = Column(String, ForeignKey("users.deviceid", ondelete="CASCADE"), unique=True, nullable=False)
+    is_blocked = Column(Boolean, default=False)
+    new_pin = Column(String, nullable=True)  # Store new PIN for unlocking
