@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+
+# FastAPI and Uvicorn logs
+*.log
+logs/
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.sublime-workspace
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Python dependencies
+*.egg-info/
+dist/
+build/
+
+# Database and migrations
+*.sqlite3
+db.sqlite3
+migrations/
+
+# Environment variables
+.env
+.env.local

@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables
 
-DATABASE_URL = "postgresql://local:lastdance@localhost:5432/safeapp"
+DATABASE_URL = "postgresql://postgres:lastdance@localhost:5432/safeapp"
 
 print(f"[DEBUG] Connecting to database: {DATABASE_URL}")  # Debugging statement
 
