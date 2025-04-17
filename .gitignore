@@ -33,3 +33,6 @@ migrations/
 # Environment variables
 .env
 .env.local
+
+safeapp-51084-firebase-adminsdk-fbsvc-4676435ebd.json
+google-services.json
