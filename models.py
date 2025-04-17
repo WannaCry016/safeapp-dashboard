@@ -50,3 +50,11 @@ class DeviceStatus(Base):
     device_id = Column(String, ForeignKey("users.deviceid", ondelete="CASCADE"), unique=True, nullable=False)
     is_blocked = Column(Boolean, default=False)
     new_pin = Column(String, nullable=True)  # Store new PIN for unlocking
+
+
+
+class Device(Base):
+    __tablename__ = "devices"
+
+    device_id = Column(String, primary_key=True, index=True, unique=True, nullable=False)
+    fcm_token = Column(String, nullable=False)
